@@ -1,0 +1,14 @@
+.navbar-nav{
+    display: flex;
+    width:100%
+}
+.navbar-nav .logout-btn {
+    float: right;
+}
+
+.logout-btn {
+    background-color: rgb(247, 71, 94);
+    color: white;
+    
+    border-color: rgb(177, 158, 162);
+}

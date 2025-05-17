@@ -1,0 +1,16 @@
+CREATE DATABASE ProjectDB;
+
+USE ProjectDB;
+
+CREATE TABLE Projects (
+    Id INT PRIMARY KEY IDENTITY,
+    Name NVARCHAR(100),
+    Description NVARCHAR(255)
+);
+
+CREATE TABLE Users (
+    Id INT PRIMARY KEY IDENTITY,
+    Username NVARCHAR(100),
+	Password NVARCHAR(100),
+    Role NVARCHAR(50)
+);

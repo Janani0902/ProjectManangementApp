@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  <h2 class="form-title">{{ isEditMode ? 'Edit Project' : 'Create Project' }}</h2>
+
+  <form [formGroup]="projectForm" (ngSubmit)="onSubmit()" class="form-container">
+    <div class="input-group">
+      <label for="name">Project Name</label>
+      <input type="text" id="name" formControlName="name" class="form-control" placeholder="Enter project name"
+        [class.is-invalid]="isFieldInvalid('name')" />
+      @if(isFieldInvalid('name')){
+        <div class="error-message">Project name is required and must be at least 3 characters.</div>
+      }
+    </div>
+
+    <div class="input-group">
+      <label for="description">Description</label>
+      <textarea id="description" formControlName="description" class="form-control" rows="3"
+        placeholder="Enter project description" [class.is-invalid]="isFieldInvalid('description')"></textarea>
+      @if(isFieldInvalid('description')){
+        <div class="error-message">Description is required and must be at least 10 characters.</div>
+      }
+    </div>
+
+    <div class="button-group">
+      <button type="button" class="btn common-button" (click)="cancel()">Cancel</button>
+
+      <button type="submit" class="btn common-button" [disabled]="projectForm.invalid">
+        {{ isEditMode ? 'Update Project' : 'Create Project' }}
+      </button>
+    </div>
+  </form>
+</div>
