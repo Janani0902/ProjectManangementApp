@@ -53,7 +53,7 @@ namespace ProjectManagementApp.Controllers
             var claims = new List<Claim>
     {
         new Claim(ClaimTypes.Name, username),
-        new Claim(ClaimTypes.Role, role) // ⬅️ Ensure this is picked up for [Authorize(Roles = ...)]
+        new Claim(ClaimTypes.Role, role) 
     };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
