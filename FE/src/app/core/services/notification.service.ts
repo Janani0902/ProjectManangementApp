@@ -38,11 +38,13 @@ export class NotificationService {
     });
 
     this.hubConnection.on('ProjectUpdated', (project) => {
+ this.ProjectService.loadProjects();
       console.log("Event Received:", project.name);
       this.toastr.info(`Project "${project.name}" was updated`);
     });
 
     this.hubConnection.on('ProjectDeleted', (project) => {
+ this.ProjectService.loadProjects();
       this.toastr.error(`Project with ID "${project.name}" was deleted`);
     });
 
