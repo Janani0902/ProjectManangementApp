@@ -31,13 +31,13 @@ namespace ProjectManagementApp.Controllers
                 return Unauthorized(new { message = "Username does not exist" });
             }
 
-            // Check if the password is correct
+          
             if (user.Password != login.Password)
             {
                 return Unauthorized(new { message = "Incorrect password" });
             }
 
-            // Check if the role matches
+          
             if (user.Role != login.Role)
             {
                 return Unauthorized(new { message = "You selected an incorrect role" });
@@ -60,8 +60,8 @@ namespace ProjectManagementApp.Controllers
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(
-                issuer: _configuration["Jwt:Issuer"],   // Optional
-                audience: _configuration["Jwt:Audience"], // Optional
+                issuer: _configuration["Jwt:Issuer"],   
+                audience: _configuration["Jwt:Audience"], 
                 claims: claims,
                 expires: DateTime.UtcNow.AddHours(1),
                 signingCredentials: creds
