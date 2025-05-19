@@ -14,8 +14,8 @@
                     <label for="username">Username</label>
                     <input type="text" id="username" [(ngModel)]="username" name="username" required minlength="3" #usernameInput="ngModel" />
                     <div class="error-message" *ngIf="usernameInput.invalid && (usernameInput.dirty || usernameInput.touched)">
-                        <small *ngIf="usernameInput.errors?.required">Username is required.</small>
-                        <small *ngIf="usernameInput.errors?.minlength">Must be at least 3 characters long.</small>
+                        <small *ngIf="usernameInput.errors?.['required']">Username is required.</small>
+                        <small *ngIf="usernameInput.errors?.['minlength']">Must be at least 3 characters long.</small>
                     </div>
                 </div>
 
@@ -23,8 +23,8 @@
                     <label for="password">Password</label>
                     <input type="password" id="password" [(ngModel)]="password" name="password" required minlength="6" #passwordInput="ngModel" />
                     <div class="error-message" *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)">
-                        <small *ngIf="passwordInput.errors?.required">Password is required.</small>
-                        <small *ngIf="passwordInput.errors?.minlength">Must be at least 6 characters long.</small>
+                        <small *ngIf="passwordInput.errors?.['required']">Password is required.</small>
+                        <small *ngIf="passwordInput.errors?.['minlength']">Must be at least 6 characters long.</small>
                     </div>
                 </div>
 
