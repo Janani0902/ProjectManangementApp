@@ -45,7 +45,7 @@ export class NotificationService {
 
     this.hubConnection.on('ProjectDeleted', (project) => {
  this.ProjectService.loadProjects();
-      this.toastr.error(`Project with ID "${project.name}" was deleted`);
+      this.toastr.error(`Project "${project.name}" was deleted`);
     });
 
     this.hubConnection.onclose(() => {
