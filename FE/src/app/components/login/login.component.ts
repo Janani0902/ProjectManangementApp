@@ -2,13 +2,15 @@ import { Component } from '@angular/core';
 import { AuthService } from '../../core/services/auth.service';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule],
+ imports: [CommonModule ,FormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
   username = '';
@@ -39,8 +41,9 @@ export class LoginComponent {
       error: (err) => {
         console.error('Login failed:', err);
         this.isLoginError = true;
-        this.loginErrorMessage = err.error.message;
-      }
+       this.loginErrorMessage = err.error?.message || 'Login failed. Please try again.';
+       console.log('Error message set:', this.loginErrorMessage);
+}
     });
   }
 
