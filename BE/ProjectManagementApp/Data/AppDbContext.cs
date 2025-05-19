@@ -1,4 +1,4 @@
-﻿using ProjectManagementApp.Models; // 👈 adjust based on your actual project name
+﻿using ProjectManagementApp.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace ProjectManagementApp.Data
